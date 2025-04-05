@@ -1,0 +1,50 @@
+{
+   "name": "vscode-createfiles",
+   "displayName": "VSCode Create Files",
+   "description": "A simple VSCode extension that adds context menu items to create new PHP and composer.json files.",
+   "version": "1.0.0",
+   "publisher": "yousha-aleayoub",
+   "license": "GPL-3.0-only",
+    "pricing": "Free",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/yousha/vscode-createfiles.git"
+   },
+   "engines": {
+      "vscode": "^1.75.0"
+   },
+   "categories": [
+      "Other"
+   ],
+   "activationEvents": [
+      "onCommand:extension.createPhpFile",
+      "onCommand:extension.createComposerJson"
+   ],
+   "main": "src/extension.js",
+   "contributes": {
+      "commands": [
+         {
+            "command": "extension.createPhpFile",
+            "title": "New PHP File"
+         },
+         {
+            "command": "extension.createComposerJson",
+            "title": "New composer.json"
+         }
+      ],
+      "menus": {
+         "explorer/context": [
+            {
+               "command": "extension.createPhpFile",
+               "group": "navigation",
+               "when": "explorerResourceIsFolder"
+            },
+            {
+               "command": "extension.createComposerJson",
+               "group": "navigation",
+               "when": "explorerResourceIsFolder"
+            }
+         ]
+      }
+   }
+}
